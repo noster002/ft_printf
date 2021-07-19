@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_nbr_len_hex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/21 13:15:00 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/19 20:48:09 by nosterme         ###   ########.fr       */
+/*   Created: 2021/07/19 18:03:34 by nosterme          #+#    #+#             */
+/*   Updated: 2021/07/19 19:47:51 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "Libft/libft.h"
-# include "ft_set_flags.h"
-# include "ft_conversion.h"
+#include "ft_printf.h"
 
-int	ft_printf(const char *input, ...);
+int	ft_nbr_len_hex(long long nbr)
+{
+	int	count;
 
-#endif
+	count = 0;
+	if (!nbr)
+		return (1);
+	if (nbr < 0)
+		nbr += 4294967296;
+	while (nbr)
+	{
+		nbr /= 16;
+		count++;
+	}
+	return (count);
+}

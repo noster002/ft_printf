@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_hexadecimal.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/21 13:15:00 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/19 20:48:09 by nosterme         ###   ########.fr       */
+/*   Created: 2021/07/19 18:38:59 by nosterme          #+#    #+#             */
+/*   Updated: 2021/07/19 19:37:58 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "Libft/libft.h"
-# include "ft_set_flags.h"
-# include "ft_conversion.h"
+#ifndef FT_HEXADECIMAL_H
+# define FT_HEXADECIMAL_H
 
-int	ft_printf(const char *input, ...);
+int	ft_write_hex(long long dec);
+int	ft_nbr_len_hex(long long nbr);
 
 #endif
