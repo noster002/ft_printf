@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 13:44:10 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/14 16:44:55 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/19 10:37:53 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	ft_check_cases(const char *offset, t_flags *flags)
 	if (offset[cnt_chars] == '.')
 		cnt_chars += ft_set_precision(&offset[cnt_chars], flags);
 	if (ft_set_conversion_specifier(offset[cnt_chars], flags))
-		return (cnt_chars + 1);
+		return (cnt_chars + 2);
 	return (1);
 }

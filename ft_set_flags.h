@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:02:20 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/14 16:47:05 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/19 11:45:01 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_flags
 	int	min_field_width;
 }		t_flags;
 
-int		ft_initialize_flags(const char *offset, t_flags flags);
+int		ft_initialize_flags(const char *offset, t_flags *flags);
 int		ft_check_cases(const char *offset, t_flags *flags);
 int		ft_set_conversion_flags(const char *offset, t_flags *flag);
 int		ft_set_min_field_width(const char *offset, t_flags *flag);

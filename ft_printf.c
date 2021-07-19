@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:41:08 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/14 16:48:18 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/19 11:49:52 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_printf(const char *input, ...)
 	t_flags		flags;
 
 	cnt_input = 0;
+	cnt_output = 0;
 	va_start(arg.list, input);
 	while (input[cnt_input] != 0)
 	{
@@ -30,7 +31,7 @@ int	ft_printf(const char *input, ...)
 		}
 		else
 		{
-			cnt_input += ft_initialize_flags(&(input[cnt_input + 1]), flags);
+			cnt_input += ft_initialize_flags(&(input[cnt_input + 1]), &flags);
 			cnt_output += ft_conversion(arg, &flags);
 		}
 	}
