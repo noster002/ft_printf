@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:36:46 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/21 11:48:41 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/21 16:27:53 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int	ft_print_str_conversion(t_arguments arg, t_flags *flag);
 int	ft_print_ptr_conversion(t_arguments arg, t_flags *flag);
 int	ft_print_nbr_conversion(t_arguments arg, t_flags *flag);
 int	ft_print_signed_dec(t_arguments arg, t_flags *flag);
+int	ft_print_unsigned_dec(t_arguments arg, t_flags *flag);
+int	ft_print_unsigned_hex(t_arguments arg, t_flags *flag);
 
 #endif
