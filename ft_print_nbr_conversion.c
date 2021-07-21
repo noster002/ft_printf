@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbr_len_hex.c                                   :+:      :+:    :+:   */
+/*   ft_print_nbr_conversion.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/19 18:03:34 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/19 19:47:51 by nosterme         ###   ########.fr       */
+/*   Created: 2021/07/20 10:27:17 by nosterme          #+#    #+#             */
+/*   Updated: 2021/07/20 21:14:55 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_nbr_len_hex(long long nbr)
+int	ft_print_nbr_conversion(t_arguments arg, t_flags *flag)
 {
-	int	count;
-
-	count = 0;
-	if (!nbr)
-		return (1);
-	if (nbr < 0)
-		nbr += 4294967296;
-	while (nbr)
-	{
-		nbr /= 16;
-		count++;
-	}
-	return (count);
+	if (flag->d || flag->i)
+		return (ft_print_signed_dec(arg, flag));
+	/*if (flag->u)
+		return (ft_print_unsigned_dec(arg, flag));
+	if (flag->lowercase_x || flag->uppercase_x)
+		return (ft_print_hex(arg, flag));*/
+	return (0);
 }

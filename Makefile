@@ -7,7 +7,9 @@ ft_printf.o ft_initialize_flags.o ft_check_cases.o Libft/ft_memset.o \
 ft_set_conversion_flags.o ft_set_min_field_width.o ft_set_precision.o \
 Libft/ft_isdigit.o ft_set_conversion_specifier.o ft_conversion.o \
 ft_print_char_conversion.o ft_print_str_conversion.o Libft/ft_strlen.o \
-ft_print_ptr_conversion.o ft_nbr_len_hex.o ft_write_hex.o
+ft_print_ptr_conversion.o ft_nbr_len.o ft_write_hex.o ft_write_dec.o \
+ft_print_nbr_conversion.o ft_print_signed_dec.o ft_check_width_dec.o \
+
 
 all:		$(NAME)
 

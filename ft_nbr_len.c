@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_hex.c                                     :+:      :+:    :+:   */
+/*   ft_nbr_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/19 15:49:40 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/20 21:14:12 by nosterme         ###   ########.fr       */
+/*   Created: 2021/07/20 20:24:51 by nosterme          #+#    #+#             */
+/*   Updated: 2021/07/21 11:44:59 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_write_hex(long long nbr)
+int	ft_nbr_len(long long nbr, int base)
 {
-	int		cnt_chars;
-	char	c;
+	int	count;
 
-	cnt_chars = 0;
-	if (nbr >= 16)
-		cnt_chars = ft_write_hex(nbr / 16);
-	if ((nbr % 16) >= 10)
-		c = (nbr % 16) + 'a' - 10;
-	else if ((nbr % 16) >= 0)
-		c = (nbr % 16) + '0';
-	cnt_chars += write(1, &c, 1);
-	return (cnt_chars);
+	count = 0;
+	if (!nbr)
+		return (1);
+	while (nbr)
+	{
+		nbr /= base;
+		count++;
+	}
+	return (count);
 }

@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_hex.c                                     :+:      :+:    :+:   */
+/*   ft_check_width_dec.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/19 15:49:40 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/20 21:14:12 by nosterme         ###   ########.fr       */
+/*   Created: 2021/07/20 20:48:18 by nosterme          #+#    #+#             */
+/*   Updated: 2021/07/20 21:11:34 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_write_hex(long long nbr)
+int	ft_check_width_dec(long long nbr, int cnt_width, t_flags *flag)
 {
-	int		cnt_chars;
-	char	c;
+	int	nbr_len;
 
-	cnt_chars = 0;
-	if (nbr >= 16)
-		cnt_chars = ft_write_hex(nbr / 16);
-	if ((nbr % 16) >= 10)
-		c = (nbr % 16) + 'a' - 10;
-	else if ((nbr % 16) >= 0)
-		c = (nbr % 16) + '0';
-	cnt_chars += write(1, &c, 1);
-	return (cnt_chars);
+	nbr_len = ft_nbr_len(nbr, 10);
+	if (!cnt_width)
+	{
+		if (nbr < 0 || flag->plus || flag->space)
+			cnt_width++;
+		if (flag->precision > nbr_len)
+			cnt_width += flag->precision;
+		else
+			cnt_width += nbr_len;
+	}
+	return (cnt_width);
 }
