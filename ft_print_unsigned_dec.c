@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 12:03:50 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/21 12:44:09 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/26 10:44:03 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	ft_check_width_unsigned_dec(unsigned int nbr, int cnt_width, t_flags *flag)
 {
 	int	nbr_len;
 
+	if (flag->dot && !(flag->precision) && !nbr)
+		return (0);
 	nbr_len = ft_nbr_len(nbr, 10);
 	if (!cnt_width)
 	{
@@ -54,8 +56,6 @@ static int	ft_fill_field_width_unsigned_dec(unsigned int nbr, \
 
 	cnt_chars = 0;
 	cnt_min_width = ft_check_width_unsigned_dec(nbr, output, flag);
-	if (flag->dot && !(flag->precision) && !nbr)
-		cnt_min_width = 0;
 	while (flag->min_field_width > cnt_min_width)
 	{
 		cnt_chars += write(1, " ", 1);
@@ -64,13 +64,13 @@ static int	ft_fill_field_width_unsigned_dec(unsigned int nbr, \
 	return (cnt_chars);
 }
 
-int	ft_print_unsigned_dec(t_arguments arg, t_flags *flag)
+int	ft_print_unsigned_dec(t_arguments *arg, t_flags *flag)
 {
 	int				cnt_chars;
 	unsigned int	nbr;
 
 	cnt_chars = 0;
-	nbr = va_arg(arg.list, unsigned int);
+	nbr = va_arg(arg->list, unsigned int);
 	if (flag->minus || flag->dot)
 		flag->zero = 0;
 	if (flag->minus)

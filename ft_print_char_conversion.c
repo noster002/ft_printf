@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 19:36:45 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/19 11:50:29 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/22 16:43:37 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ static void	ft_fill_field_width_char(t_flags *flag)
 	}
 }
 
-int	ft_print_char_conversion(t_arguments arg, t_flags *flag)
+int	ft_print_char_conversion(t_arguments *arg, t_flags *flag)
 {
 	int				cnt_chars;
 	unsigned char	argument;
 
 	cnt_chars = ft_set_output_field_width_char(flag);
-	argument = va_arg(arg.list, int);
+	argument = (unsigned char)va_arg(arg->list, int);
 	if (flag->minus)
 		ft_write_char(argument);
 	ft_fill_field_width_char(flag);

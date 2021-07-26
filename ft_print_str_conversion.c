@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 13:39:09 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/21 17:25:12 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/21 21:44:09 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@ static int	ft_fill_field_width_str(int	str_len, t_flags *flag)
 	return (cnt_chars);
 }
 
-int	ft_print_str_conversion(t_arguments arg, t_flags *flag)
+int	ft_print_str_conversion(t_arguments *arg, t_flags *flag)
 {
 	int		cnt_chars;
 	char	*string;
 	int		output_str_len;
 	int		flag_free;
 
-	string = va_arg(arg.list, char *);
+	string = va_arg(arg->list, char *);
 	flag_free = 0;
 	if (!string)
 	{
 		flag_free = 1;
 		if ((flag->dot && flag->precision >= 6) || !(flag->dot))
-			string= ft_strdup("(null)");
+			string = ft_strdup("(null)");
 		else if (flag->dot && flag->precision < 6)
 			string = ft_strdup("\0");
 	}

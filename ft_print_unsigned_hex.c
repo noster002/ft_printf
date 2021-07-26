@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 15:41:17 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/21 16:42:04 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/26 10:50:29 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	ft_write_prefix_unsigned_hex(unsigned int nbr, t_flags *flag)
 
 	cnt_chars = 0;
 	if (!nbr)
-		return(0);
+		return (0);
 	if (flag->lowercase_x && flag->hashtag)
 		cnt_chars = write(1, "0x", 2);
 	if (flag->uppercase_x && flag->hashtag)
@@ -36,7 +36,7 @@ static int	ft_write_unsigned_hex(unsigned int nbr, t_flags *flag)
 	cnt_chars = ft_write_prefix_unsigned_hex(nbr, flag);
 	nbr_len = ft_nbr_len(nbr, 16);
 	while (flag->precision > nbr_len || \
-		(flag->zero && flag->min_field_width > nbr_len))
+		(flag->zero && flag->min_field_width > nbr_len + 2 * flag->hashtag))
 	{
 		cnt_chars += write(1, "0", 1);
 		nbr_len++;
@@ -50,7 +50,7 @@ static int	ft_write_unsigned_hex(unsigned int nbr, t_flags *flag)
 
 static int	ft_check_width_hex(unsigned int nbr, int cnt_width, t_flags *flag)
 {
-	int nbr_len;
+	int	nbr_len;
 
 	nbr_len = ft_nbr_len(nbr, 16);
 	if (!cnt_width)
@@ -83,13 +83,13 @@ static int	ft_fill_field_width_unsigned_hex(unsigned int nbr, \
 	return (cnt_chars);
 }
 
-int	ft_print_unsigned_hex(t_arguments arg, t_flags *flag)
+int	ft_print_unsigned_hex(t_arguments *arg, t_flags *flag)
 {
 	int				cnt_chars;
 	unsigned int	nbr;
 
 	cnt_chars = 0;
-	nbr = va_arg(arg.list, unsigned int);
+	nbr = va_arg(arg->list, unsigned int);
 	if (flag->minus || flag->dot)
 		flag->zero = 0;
 	if (flag->minus)

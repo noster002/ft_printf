@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 14:50:29 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/21 16:23:24 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/26 11:05:24 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_write_prefix_ptr(t_flags *flag)
 	return (write(1, "0x", 2) + cnt_chars);
 }
 
-static int	ft_write_ptr(long long argument, t_flags *flag)
+static int	ft_write_ptr(unsigned long long argument, t_flags *flag)
 {
 	int	cnt_chars;
 	int	cnt_prefix;
@@ -43,9 +43,10 @@ static int	ft_write_ptr(long long argument, t_flags *flag)
 	return (cnt_chars);
 }
 
-static int	ft_check_width_ptr(long long nbr, int cnt_width, t_flags *flag)
+static int	ft_check_width_ptr(unsigned long long nbr, int cnt_width, \
+								t_flags *flag)
 {
-	int nbr_len;
+	int	nbr_len;
 
 	nbr_len = ft_nbr_len(nbr, 16);
 	if (!cnt_width)
@@ -61,7 +62,8 @@ static int	ft_check_width_ptr(long long nbr, int cnt_width, t_flags *flag)
 	return (cnt_width);
 }
 
-static int	ft_fill_field_width_ptr(long long nbr, int output, t_flags *flag)
+static int	ft_fill_field_width_ptr(unsigned long long nbr, int output, \
+									t_flags *flag)
 {
 	int	cnt_output;
 	int	cnt_min_width;
@@ -78,13 +80,13 @@ static int	ft_fill_field_width_ptr(long long nbr, int output, t_flags *flag)
 	return (cnt_output);
 }
 
-int	ft_print_ptr_conversion(t_arguments arg, t_flags *flag)
+int	ft_print_ptr_conversion(t_arguments *arg, t_flags *flag)
 {
-	long long	argument;
-	int			cnt_chars;
+	unsigned long long	argument;
+	int					cnt_chars;
 
 	cnt_chars = 0;
-	argument = va_arg(arg.list, long long);
+	argument = va_arg(arg->list, unsigned long long);
 	if (flag->minus)
 		cnt_chars += ft_write_ptr(argument, flag);
 	if (!(flag->zero))

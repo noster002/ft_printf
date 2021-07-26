@@ -6,13 +6,13 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 20:24:51 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/21 11:44:59 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/26 11:01:20 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_nbr_len(long long nbr, int base)
+int	ft_nbr_len(unsigned long long nbr, int base)
 {
 	int	count;
 

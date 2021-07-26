@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 13:23:05 by nosterme          #+#    #+#             */
-/*   Updated: 2021/07/21 12:43:43 by nosterme         ###   ########.fr       */
+/*   Updated: 2021/07/26 10:36:08 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ static int	ft_write_signed_dec(long nbr, t_flags *flag)
 	nbr_len = ft_nbr_len(nbr, 10);
 	if (flag->dot && !(flag->precision) && !nbr)
 		return (cnt_chars);
-	if (flag->zero && flag->min_field_width > nbr_len)
-		nbr_len++;
 	while (flag->precision > nbr_len || \
 		(flag->zero && flag->min_field_width > nbr_len))
 	{
@@ -54,6 +52,8 @@ static int	ft_check_width_signed_dec(long nbr, int cnt_width, t_flags *flag)
 {
 	int	nbr_len;
 
+	if (flag->dot && !(flag->precision) && !nbr)
+		return (flag->plus || flag->space);
 	nbr_len = ft_nbr_len(nbr, 10);
 	if (!cnt_width)
 	{
@@ -74,8 +74,6 @@ static int	ft_fill_field_width_signed_dec(long nbr, int output, t_flags *flag)
 
 	cnt_chars = 0;
 	cnt_min_width = ft_check_width_signed_dec(nbr, output, flag);
-	if (flag->dot && !(flag->precision) && !nbr)
-		cnt_min_width = 0;
 	while (flag->min_field_width > cnt_min_width)
 	{
 		cnt_chars += write(1, " ", 1);
@@ -84,13 +82,13 @@ static int	ft_fill_field_width_signed_dec(long nbr, int output, t_flags *flag)
 	return (cnt_chars);
 }
 
-int	ft_print_signed_dec(t_arguments arg, t_flags *flag)
+int	ft_print_signed_dec(t_arguments *arg, t_flags *flag)
 {
 	int	cnt_chars;
 	int	argument;
 
 	cnt_chars = 0;
-	argument = va_arg(arg.list, long);
+	argument = va_arg(arg->list, long);
 	if (flag->minus || flag->dot)
 		flag->zero = 0;
 	if (flag->minus)
