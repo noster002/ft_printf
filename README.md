@@ -4,7 +4,7 @@
 This library contains a recoded version of printf.
 
 ### Conversions
-`%c %s %p %d %i %u %x %X %%`
+`%c` `%s` `%p` `%d` `%i` `%u` `%x` `%X` `%%`
 
 ### Flags
 `-0.# +`
