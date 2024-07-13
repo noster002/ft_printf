@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vprintf.c                                       :+:      :+:    :+:   */
+/*   result_compare.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 16:22:13 by nosterme          #+#    #+#             */
-/*   Updated: 2024/07/13 07:39:55 by nosterme         ###   ########.fr       */
+/*   Created: 2024/07/13 06:43:17 by nosterme          #+#    #+#             */
+/*   Updated: 2024/07/13 07:33:50 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "result.h"
 
-int	ft_vprintf(const char *format, va_list ap)
+int	result_cmp(const t_result expected, const t_result test)
 {
-	(void)format;
-	(void)ap;
-	return 7;//(_printf(format, ap));
+	return (strcmp(expected.buffer, test.buffer) |\
+			(expected.chars_written - test.chars_written));
 }

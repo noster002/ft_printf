@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vprintf.c                                       :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 16:22:13 by nosterme          #+#    #+#             */
-/*   Updated: 2024/07/13 07:39:55 by nosterme         ###   ########.fr       */
+/*   Created: 2024/07/13 07:56:18 by nosterme          #+#    #+#             */
+/*   Updated: 2024/07/13 08:09:21 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-int	ft_vprintf(const char *format, va_list ap)
-{
-	(void)format;
-	(void)ap;
-	return 7;//(_printf(format, ap));
-}
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+
+void	exit_perror(const char *message);
+int		save_fd_or_exit(int fd);
+void	restore_fd_or_exit(int oldfd, int newfd);
+void	pipe_fds_or_exit(int fd_read, int fd_write);
+void	read_or_exit(int fd, void *buffer, size_t size);
+void	write_or_exit(int fd, void *buffer, size_t size);
+
+#endif

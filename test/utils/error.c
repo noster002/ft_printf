@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vprintf.c                                       :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 16:22:13 by nosterme          #+#    #+#             */
-/*   Updated: 2024/07/13 07:39:55 by nosterme         ###   ########.fr       */
+/*   Created: 2024/07/13 03:05:20 by nosterme          #+#    #+#             */
+/*   Updated: 2024/07/13 08:02:27 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "utils.h"
 
-int	ft_vprintf(const char *format, va_list ap)
+void	exit_perror(const char *message)
 {
-	(void)format;
-	(void)ap;
-	return 7;//(_printf(format, ap));
+	perror(message);
+	_exit(EXIT_FAILURE);
 }

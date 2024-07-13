@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vprintf.c                                       :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 16:22:13 by nosterme          #+#    #+#             */
-/*   Updated: 2024/07/13 07:39:55 by nosterme         ###   ########.fr       */
+/*   Created: 2024/07/13 00:17:01 by nosterme          #+#    #+#             */
+/*   Updated: 2024/07/13 06:58:20 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libtest.h"
 
-int	ft_vprintf(const char *format, va_list ap)
+int	check_results(const t_result expected, const t_result test,\
+	int (*cmp)(const t_result, const t_result))
 {
-	(void)format;
-	(void)ap;
-	return 7;//(_printf(format, ap));
+	return ((*cmp)(expected, test));
 }

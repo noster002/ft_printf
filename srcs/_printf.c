@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vprintf.c                                       :+:      :+:    :+:   */
+/*   _printf.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 16:22:13 by nosterme          #+#    #+#             */
-/*   Updated: 2024/07/13 07:39:55 by nosterme         ###   ########.fr       */
+/*   Created: 2024/07/11 15:34:18 by nosterme          #+#    #+#             */
+/*   Updated: 2024/07/13 07:31:16 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-int	ft_vprintf(const char *format, va_list ap)
+int	_printf(const char *format, va_list ap)
 {
 	(void)format;
 	(void)ap;
-	return 7;//(_printf(format, ap));
+	return (8);
 }

@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vprintf.c                                       :+:      :+:    :+:   */
+/*   result.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 16:22:13 by nosterme          #+#    #+#             */
-/*   Updated: 2024/07/13 07:39:55 by nosterme         ###   ########.fr       */
+/*   Created: 2024/07/13 06:19:53 by nosterme          #+#    #+#             */
+/*   Updated: 2024/07/13 07:52:53 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef RESULT_H
+# define RESULT_H
 
-int	ft_vprintf(const char *format, va_list ap)
+# include <string.h>
+
+# define BUFSIZE	4096
+
+typedef struct	s_result
 {
-	(void)format;
-	(void)ap;
-	return 7;//(_printf(format, ap));
-}
+	char	buffer[BUFSIZE];
+	int		chars_written;
+}			t_result;
+
+int	result_cmp(const t_result expected, const t_result test);
+
+#endif

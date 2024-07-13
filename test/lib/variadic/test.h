@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vprintf.c                                       :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 16:22:13 by nosterme          #+#    #+#             */
-/*   Updated: 2024/07/13 07:39:55 by nosterme         ###   ########.fr       */
+/*   Created: 2024/07/13 00:57:20 by nosterme          #+#    #+#             */
+/*   Updated: 2024/07/13 07:18:34 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef VARIADIC_TEST_H
+# define VARIADIC_TEST_H
 
-int	ft_vprintf(const char *format, va_list ap)
-{
-	(void)format;
-	(void)ap;
-	return 7;//(_printf(format, ap));
-}
+# define	VARIADIC_COPYCAT_TEST(COMPUTE_RESULTS, original, copycat,\
+			params, result_cmp)	{\
+	t_result	original_result;\
+	t_result	copycat_result;\
+\
+	COMPUTE_RESULTS(original, params, original_result);\
+	COMPUTE_RESULTS(copycat, params, copycat_result);\
+	check_results(original_result, copycat_result, result_cmp);\
+}\
+
+#endif

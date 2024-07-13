@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vprintf.c                                       :+:      :+:    :+:   */
+/*   libtest.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nosterme <nosterme@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 16:22:13 by nosterme          #+#    #+#             */
-/*   Updated: 2024/07/13 07:39:55 by nosterme         ###   ########.fr       */
+/*   Created: 2024/07/13 05:21:08 by nosterme          #+#    #+#             */
+/*   Updated: 2024/07/13 08:15:39 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef LIBTEST_H
+# define LIBTEST_H
 
-int	ft_vprintf(const char *format, va_list ap)
-{
-	(void)format;
-	(void)ap;
-	return 7;//(_printf(format, ap));
-}
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+
+typedef struct	s_result	t_result;
+
+int	check_results(const t_result expected, const t_result test,\
+	int (*cmp)(const t_result, const t_result));
+
+/*
+ * Variadic function test macros
+ */
+# include "variadic/wrapper.h"
+# include "variadic/test.h"
+
+#endif

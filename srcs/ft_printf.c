@@ -6,7 +6,7 @@
 /*   By: nosterme <nosterme@student.42wolfsburg.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 18:47:40 by nosterme          #+#    #+#             */
-/*   Updated: 2024/07/06 13:49:35 by nosterme         ###   ########.fr       */
+/*   Updated: 2024/07/13 07:31:50 by nosterme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int	ft_printf(const char *format, ...)
 {
-	(void)format;
-	return (0);
+	va_list	ap;
+	int		chars_written;
+
+	va_start(ap, format);
+	chars_written = 7;//_printf(format, ap);
+	va_end(ap);
+	return (chars_written);
 }
